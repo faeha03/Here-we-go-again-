@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chocolate Day 🍫💖</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#3e1f0f,#8b4513);
+  height:100vh;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transform:scale(0.9);
+  transition:0.8s ease;
+}
+
+.slide.active{
+  opacity:1;
+  pointer-events:auto;
+  transform:scale(1);
+}
+
+.card{
+  background:linear-gradient(145deg,#5a2d16,#3b1d0e);
+  width:90%;
+  max-width:340px;
+  padding:30px 22px;
+  border-radius:28px;
+  box-shadow:
+    inset 0 0 0 4px #6b3a1e,
+    0 25px 50px rgba(0,0,0,0.6);
+  text-align:center;
+  color:#fff;
+  position:relative;
+}
+
+.card:before{
+  content:"🍫";
+  position:absolute;
+  top:-22px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:2.2rem;
+}
+
+h1{
+  font-size:1.7rem;
+  margin-bottom:15px;
+}
+
+p{
+  font-size:1.05rem;
+  line-height:1.6;
+  opacity:0.95;
+}
+
+button{
+  margin-top:25px;
+  padding:12px 26px;
+  border:none;
+  border-radius:25px;
+  background:#d2691e;
+  color:#fff;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.1);
+  background:#ff9f45;
+}
+
+.heart{
+  font-size:2.5rem;
+  margin-bottom:10px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+  <div class="card">
+    <div class="heart">🍫</div>
+    <h1>Hey My Sweetest Girl</h1>
+    <p>
+      It’s Chocolate Day…  
+      and this little chocolate  
+      is made only for you.
+    </p>
+    <button onclick="nextSlide()">Unwrap gently 🤎</button>
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+  <div class="card">
+    <h1>Some Chocolates Melt</h1>
+    <p>
+      Some disappear too fast…  
+      but some stay on your tongue  
+      and in your heart.
+    </p>
+    <button onclick="nextSlide()">Take another bite 🍬</button>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+  <div class="card">
+    <h1>I Love You</h1>
+    <p>
+      In the soft way.  
+      In the quiet way.  
+      In the way chocolate comforts  
+      without saying a word.
+    </p>
+    <button onclick="nextSlide()">This feels warm 🥺</button>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+  <div class="card">
+    <h1>You Are My Favorite</h1>
+    <p>
+      Not because you’re sweet…  
+      but because you feel like  
+      home after a long day.
+    </p>
+    <button onclick="nextSlide()">I like this 🤍</button>
+  </div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+  <div class="card">
+    <h1>Chocolate Is Special</h1>
+    <p>
+      Because it’s chosen carefully.  
+      Because it’s shared gently.  
+      Because it’s never forced.
+    </p>
+    <button onclick="nextSlide()">Just like us 🌷</button>
+  </div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+  <div class="card">
+    <h1>I Choose You</h1>
+    <p>
+      On good days.  
+      On messy days.  
+      On days when words are hard  
+      but feelings are real.
+    </p>
+    <button onclick="nextSlide()">My heart agrees 💓</button>
+  </div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+  <div class="card">
+    <h1>So Here’s My Question…</h1>
+    <p>
+      Wrapped in chocolate.  
+      Dipped in affection.  
+      Asked with respect.
+    </p>
+    <button onclick="nextSlide()">Okay… tell me 💌</button>
+  </div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide">
+  <div class="card">
+    <div class="heart">❤️</div>
+    <h1>Will You Be My Valentine?</h1>
+    <p>
+      Not just today…  
+      but for every sweet moment  
+      we slowly build together.
+    </p>
+    <button onclick="nextSlide()">I’m smiling 😭</button>
+  </div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide">
+  <div class="card">
+    <h1>No Matter What</h1>
+    <p>
+      Thank you for existing.  
+      Thank you for being you.  
+      You already make my world sweeter.
+    </p>
+    <button onclick="restart()">Read again 🍫</button>
+  </div>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+function nextSlide(){
+  slides[current].classList.remove("active");
+  current++;
+  if(current >= slides.length) current = slides.length - 1;
+  slides[current].classList.add("active");
+}
+
+function restart(){
+  slides[current].classList.remove("active");
+  current = 0;
+  slides[current].classList.add("active");
+}
+</script>
+
+</body>
+</html>
